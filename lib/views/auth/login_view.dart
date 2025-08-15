@@ -23,7 +23,7 @@ class _LoginViewState extends State<LoginView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: media.height * 0.2),
+              SizedBox(height: 70),
               Text(
                 'login',
                 style: TextStyle(
@@ -40,17 +40,101 @@ class _LoginViewState extends State<LoginView> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(height: media.width * 0.09),
+              SizedBox(height: 30),
               RoundTextfield(hintText: 'Email'),
-              SizedBox(height: media.width * 0.06),
+              SizedBox(height: 25),
               RoundTextfield(
                 hintText: 'Password',
                 controller: password,
                 obsecureText: true,
               ),
 
-              SizedBox(height: media.width * 0.06),
+              SizedBox(height: 30),
               RoundButton(text: 'Login', onPressed: () {}),
+              SizedBox(height: 4.0),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Forgot your password?',
+                  style: TextStyle(
+                    color: AColor.secondaryText,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              SizedBox(height: 30),
+              Text(
+                'or Login With',
+                style: TextStyle(
+                  color: AColor.secondaryText,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              SizedBox(height: 30),
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    color: Color(0xff367fc0),
+                    borderRadius: BorderRadius.circular(28),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'Login with Facebook',
+                        style: TextStyle(
+                          color: AColor.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 25),
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  height: 56,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Color(0xffdd4b39),
+                    borderRadius: BorderRadius.circular(28),
+                  ),
+                  child: Text(
+                    'Login with Google',
+                    style: TextStyle(
+                      color: AColor.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 80),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Don\'t have an Account?'),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        color: AColor.primary,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
