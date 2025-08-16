@@ -1,6 +1,8 @@
 import 'package:client/common_widget/round_button.dart';
+import 'package:client/common_widget/round_icon_button.dart';
 import 'package:client/common_widget/round_textfield.dart';
 import 'package:client/const/color_extension.dart';
+import 'package:client/views/auth/signup_view.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
@@ -15,7 +17,6 @@ class _LoginViewState extends State<LoginView> {
   TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var media = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -73,49 +74,18 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
               SizedBox(height: 30),
-              InkWell(
+              RoundIconButton(
                 onTap: () {},
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    color: Color(0xff367fc0),
-                    borderRadius: BorderRadius.circular(28),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Login with Facebook',
-                        style: TextStyle(
-                          color: AColor.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                text: 'Login with Facebook',
+                image: 'assets/images/facebook_logo.png',
+                color: Color(0xff367fc0),
               ),
               SizedBox(height: 25),
-              InkWell(
+              RoundIconButton(
                 onTap: () {},
-                child: Container(
-                  height: 56,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Color(0xffdd4b39),
-                    borderRadius: BorderRadius.circular(28),
-                  ),
-                  child: Text(
-                    'Login with Google',
-                    style: TextStyle(
-                      color: AColor.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
+                image: 'assets/images/google_logo.png',
+                text: 'Login with Google',
+                color: Color(0xffdd4b39),
               ),
               SizedBox(height: 80),
               Row(
@@ -123,7 +93,12 @@ class _LoginViewState extends State<LoginView> {
                 children: [
                   Text('Don\'t have an Account?'),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignupView()),
+                      );
+                    },
                     child: Text(
                       'Sign Up',
                       style: TextStyle(
