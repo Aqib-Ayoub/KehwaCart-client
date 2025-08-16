@@ -36,7 +36,7 @@ class _SignupViewState extends State<SignupView> {
                 ),
               ),
               Text(
-                'Add your details to login',
+                'Add your details to sign up',
                 style: TextStyle(
                   color: AColor.secondaryText,
                   fontSize: 14,
@@ -48,13 +48,15 @@ class _SignupViewState extends State<SignupView> {
               SizedBox(height: 30),
               RoundTextfield(hintText: 'Email'),
               SizedBox(height: 30),
-              RoundTextfield(hintText: 'Mobile'),
+              RoundTextfield(hintText: 'Mobile No'),
+              SizedBox(height: 30),
+              RoundTextfield(hintText: 'Address'),
               SizedBox(height: 30),
               RoundTextfield(hintText: 'Password'),
               SizedBox(height: 30),
               RoundTextfield(hintText: 'Confirm Password'),
               SizedBox(height: 30),
-              RoundButton(text: 'Signup', onPressed: () {}),
+              RoundButton(text: 'Sign Up', onPressed: () {}),
               SizedBox(height: 60.0),
               Row(
                 mainAxisSize: MainAxisSize.min,

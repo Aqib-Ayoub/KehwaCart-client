@@ -2,6 +2,7 @@ import 'package:client/common_widget/round_button.dart';
 import 'package:client/common_widget/round_icon_button.dart';
 import 'package:client/common_widget/round_textfield.dart';
 import 'package:client/const/color_extension.dart';
+import 'package:client/views/auth/reset_password_view.dart';
 import 'package:client/views/auth/signup_view.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +55,14 @@ class _LoginViewState extends State<LoginView> {
               RoundButton(text: 'Login', onPressed: () {}),
               SizedBox(height: 4.0),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ResetPasswordView(),
+                    ),
+                  );
+                },
                 child: Text(
                   'Forgot your password?',
                   style: TextStyle(
