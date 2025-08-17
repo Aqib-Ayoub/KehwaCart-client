@@ -50,10 +50,10 @@ class _NewPasswordViewState extends State<NewPasswordView> {
             RoundButton(
               text: 'Next',
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => OtpView()),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => OtpView()),
+                // );
               },
             ),
           ],

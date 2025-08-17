@@ -1,6 +1,7 @@
 import 'package:client/common_widget/round_button.dart';
 import 'package:client/const/color_extension.dart';
 import 'package:client/views/auth/login_view.dart';
+import 'package:client/views/auth/signup_view.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeView extends StatefulWidget {
@@ -67,7 +68,12 @@ class _WelcomeViewState extends State<WelcomeView> {
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: RoundButton(
               text: 'Create an Account',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignupView()),
+                );
+              },
               type: ButtonType.textPrimary,
             ),
           ),

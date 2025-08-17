@@ -2,6 +2,7 @@ import 'package:client/common_widget/round_button.dart';
 import 'package:client/common_widget/round_textfield.dart';
 import 'package:client/const/color_extension.dart';
 import 'package:client/views/auth/login_view.dart';
+import 'package:client/views/auth/otp_view.dart';
 import 'package:flutter/material.dart';
 
 class SignupView extends StatefulWidget {
@@ -56,7 +57,15 @@ class _SignupViewState extends State<SignupView> {
               SizedBox(height: 30),
               RoundTextfield(hintText: 'Confirm Password'),
               SizedBox(height: 30),
-              RoundButton(text: 'Sign Up', onPressed: () {}),
+              RoundButton(
+                text: 'Sign Up',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => OtpView()),
+                  );
+                },
+              ),
               SizedBox(height: 60.0),
               Row(
                 mainAxisSize: MainAxisSize.min,
