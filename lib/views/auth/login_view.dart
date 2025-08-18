@@ -4,6 +4,7 @@ import 'package:client/common_widget/round_textfield.dart';
 import 'package:client/const/color_extension.dart';
 import 'package:client/views/auth/reset_password_view.dart';
 import 'package:client/views/auth/signup_view.dart';
+import 'package:client/views/on_boarding/on_boarding_view.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
@@ -52,7 +53,15 @@ class _LoginViewState extends State<LoginView> {
               ),
 
               SizedBox(height: 30),
-              RoundButton(text: 'Login', onPressed: () {}),
+              RoundButton(
+                text: 'Login',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => OnBoardingView()),
+                  );
+                },
+              ),
               SizedBox(height: 4.0),
               TextButton(
                 onPressed: () {
