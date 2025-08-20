@@ -1,3 +1,4 @@
+import 'package:client/common_widget/round_button.dart';
 import 'package:client/const/color_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -32,6 +33,16 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     },
   ];
   @override
+  void initState() {
+    super.initState();
+    controller.addListener(() {
+      setState(() {
+        selectPage = controller.page?.round() ?? 0;
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
     return Scaffold(
@@ -57,7 +68,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       fit: BoxFit.contain,
                     ),
                   ),
-                  SizedBox(height: media.width * 0.1),
+                  SizedBox(height: media.width * 0.2),
                   Text(
                     pObj['title'].toString(),
                     style: TextStyle(
@@ -76,10 +87,61 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(height: media.width * 0.07),
+                  SizedBox(height: media.width * 0.2),
                 ],
               );
             },
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 350,
+
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children:
+                  pageArr.map((e) {
+                    var index = pageArr.indexOf(e);
+                    return Container(
+                      margin: EdgeInsets.symmetric(horizontal: 4),
+                      height: 6,
+                      width: 6,
+                      decoration: BoxDecoration(
+                        color:
+                            index == selectPage
+                                ? AColor.primary
+                                : AColor.placeholder,
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                      ),
+                    );
+                  }).toList(),
+            ),
+          ),
+          Column(
+            children: [
+              Spacer(),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25),
+                child: RoundButton(
+                  text: 'Next',
+                  onPressed: () {
+                    if (selectPage >= 2) {
+                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>))
+                    } else {
+                      setState(() {
+                        selectPage = selectPage + 1;
+                        controller.animateToPage(
+                          selectPage,
+                          duration: Duration(milliseconds: 500),
+                          curve: Curves.easeInOut,
+                        );
+                      });
+                    }
+                  },
+                ),
+              ),
+              SizedBox(height: media.width * 0.2),
+            ],
           ),
         ],
       ),
