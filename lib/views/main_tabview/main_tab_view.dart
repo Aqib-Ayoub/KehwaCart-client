@@ -1,3 +1,4 @@
+import 'package:client/common_widget/tab_button.dart';
 import 'package:client/const/color_extension.dart';
 import 'package:client/views/home/home_view.dart';
 import 'package:flutter/material.dart';
@@ -42,13 +43,17 @@ class _MainTabViewState extends State<MainTabView> {
       ),
       bottomNavigationBar: BottomAppBar(
         surfaceTintColor: AColor.white,
+        shadowColor: Colors.black12,
         elevation: 1,
         notchMargin: 8,
         shape: CircularNotchedRectangle(),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            InkWell(
-              onTap: () {
+            TabButton(
+              title: 'Menu',
+              icon: 'assets/images/tab_menu.png',
+              onTab: () {
                 if (selectTab != 0) {
                   selectTab = 0;
                   selectPageView = Container();
@@ -57,17 +62,53 @@ class _MainTabViewState extends State<MainTabView> {
                   setState(() {});
                 }
               },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/images/tab_menu.png',
-                    width: 15,
-                    height: 15,
-                  ),
-                ],
-              ),
+
+              isSelected: selectTab == 0,
+            ),
+            TabButton(
+              title: 'Offer',
+              icon: 'assets/images/tab_offer.png',
+              onTab: () {
+                if (selectTab != 1) {
+                  selectTab = 1;
+                  selectPageView = Container();
+                }
+                if (mounted) {
+                  setState(() {});
+                }
+              },
+
+              isSelected: selectTab == 1,
+            ),
+            TabButton(
+              title: 'Profile',
+              icon: 'assets/images/tab_profile.png',
+              onTab: () {
+                if (selectTab != 3) {
+                  selectTab = 3;
+                  selectPageView = Container();
+                }
+                if (mounted) {
+                  setState(() {});
+                }
+              },
+
+              isSelected: selectTab == 3,
+            ),
+            TabButton(
+              title: 'More',
+              icon: 'assets/images/tab_more.png',
+              onTab: () {
+                if (selectTab != 4) {
+                  selectTab = 4;
+                  selectPageView = Container();
+                }
+                if (mounted) {
+                  setState(() {});
+                }
+              },
+
+              isSelected: selectTab == 4,
             ),
           ],
         ),
