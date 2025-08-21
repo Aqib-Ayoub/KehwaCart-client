@@ -40,7 +40,38 @@ class _MainTabViewState extends State<MainTabView> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(),
+      bottomNavigationBar: BottomAppBar(
+        surfaceTintColor: AColor.white,
+        elevation: 1,
+        notchMargin: 8,
+        shape: CircularNotchedRectangle(),
+        child: Row(
+          children: [
+            InkWell(
+              onTap: () {
+                if (selectTab != 0) {
+                  selectTab = 0;
+                  selectPageView = Container();
+                }
+                if (mounted) {
+                  setState(() {});
+                }
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/tab_menu.png',
+                    width: 15,
+                    height: 15,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
