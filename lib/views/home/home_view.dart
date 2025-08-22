@@ -14,7 +14,6 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfffEFEFE),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
@@ -84,7 +83,19 @@ class _HomeViewState extends State<HomeView> {
               SizedBox(height: 25.0),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
-                child: RoundTextfield(hintText: 'Search Food'),
+                child: RoundTextfield(
+                  hintText: 'Search Food',
+                  controller: search,
+                  left: Container(
+                    alignment: Alignment.center,
+                    width: 30,
+                    child: Image.asset(
+                      'assets/images/search.png',
+                      width: 20,
+                      height: 20,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

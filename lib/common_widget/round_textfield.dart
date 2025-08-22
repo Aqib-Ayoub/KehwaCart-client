@@ -26,23 +26,34 @@ class RoundTextfield extends StatelessWidget {
         color: bgColor ?? AColor.textfield,
         borderRadius: BorderRadius.all(Radius.circular(25)),
       ),
-      child: TextField(
-        obscureText: obsecureText,
-        keyboardType: keyboardType,
-        autocorrect: false,
-        controller: controller,
+      child: Row(
+        children: [
+          if (left != null)
+            Padding(padding: EdgeInsets.only(left: 15), child: left!),
 
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-          focusedBorder: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          hintText: hintText,
-          prefixIcon: left,
-          hintStyle: TextStyle(
-            color: AColor.primaryText,
-            fontWeight: FontWeight.w500,
+          Expanded(
+            child: TextField(
+              obscureText: obsecureText,
+              keyboardType: keyboardType,
+              autocorrect: false,
+              controller: controller,
+
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 15,
+                ),
+                focusedBorder: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                hintText: hintText,
+                hintStyle: TextStyle(
+                  color: AColor.primaryText,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
