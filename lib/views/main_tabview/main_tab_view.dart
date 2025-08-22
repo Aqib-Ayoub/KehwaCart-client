@@ -17,11 +17,13 @@ class _MainTabViewState extends State<MainTabView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AColor.white,
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
+      body: PageStorage(bucket: storageBucket, child: selectPageView),
       floatingActionButton: SizedBox(
-        width: 65,
-        height: 65,
+        width: 60,
+        height: 60,
         child: FloatingActionButton(
           onPressed: () {
             if (selectTab != 2) {
@@ -45,7 +47,8 @@ class _MainTabViewState extends State<MainTabView> {
         surfaceTintColor: AColor.white,
         shadowColor: Colors.black12,
         elevation: 1,
-        notchMargin: 8,
+        notchMargin: 13,
+        height: 60,
         shape: CircularNotchedRectangle(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -56,7 +59,7 @@ class _MainTabViewState extends State<MainTabView> {
               onTab: () {
                 if (selectTab != 0) {
                   selectTab = 0;
-                  selectPageView = Container();
+                  selectPageView = Container(child: Text('Hello Menu'));
                 }
                 if (mounted) {
                   setState(() {});
@@ -80,6 +83,7 @@ class _MainTabViewState extends State<MainTabView> {
 
               isSelected: selectTab == 1,
             ),
+            SizedBox(width: 60.0, height: 60.0),
             TabButton(
               title: 'Profile',
               icon: 'assets/images/tab_profile.png',

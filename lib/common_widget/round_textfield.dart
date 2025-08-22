@@ -6,19 +6,24 @@ class RoundTextfield extends StatelessWidget {
   final String hintText;
   final TextInputType? keyboardType;
   final bool obsecureText;
+  final Color? bgColor;
+  final Widget? left;
+
   const RoundTextfield({
     super.key,
     this.controller,
     required this.hintText,
     this.keyboardType,
     this.obsecureText = false,
+    this.bgColor,
+    this.left,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AColor.textfield,
+        color: bgColor ?? AColor.textfield,
         borderRadius: BorderRadius.all(Radius.circular(25)),
       ),
       child: TextField(
@@ -26,11 +31,13 @@ class RoundTextfield extends StatelessWidget {
         keyboardType: keyboardType,
         autocorrect: false,
         controller: controller,
+
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
           hintText: hintText,
+          prefixIcon: left,
           hintStyle: TextStyle(
             color: AColor.primaryText,
             fontWeight: FontWeight.w500,
