@@ -11,6 +11,82 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   TextEditingController search = TextEditingController();
+  List catArr = [
+    {'image': 'assets/images/cat_offer.png', 'name': 'Offers'},
+    {'image': 'assets/images/cat_sri.png', 'name': 'Srinagar'},
+    {'image': 'assets/images/cat_3.png', 'name': 'Kralgund'},
+    {'image': 'assets/images/cat_4.png', 'name': 'Bicherwara'},
+  ];
+  List popArr = [
+    {
+      'image': 'assets/images/res_1.png',
+      'name': 'Minute by tuk tuk',
+      'rate': '4.8',
+      'rating': '128',
+      'type': 'cafa',
+      'location': 'Northern Food',
+    },
+    {
+      'image': 'assets/images/res_1.png',
+      'name': 'Cafe de Noir',
+      'rate': '4.9',
+      'rating': '125',
+      'type': 'cafa',
+      'location': 'Southern Food',
+    },
+    {
+      'image': 'assets/images/res_1.png',
+      'name': 'Bakes by Tella',
+      'rate': '4.5',
+      'rating': '138',
+      'type': 'cafe',
+      'location': 'Northern Food ',
+    },
+  ];
+  List mostPopArr = [
+    {
+      'image': 'assets/images/res_1.png',
+      'name': 'Minute by tuk tuk',
+      'rate': '4.8',
+      'rating': '128',
+      'type': 'cafa',
+      'location': 'Northern Food',
+    },
+    {
+      'image': 'assets/images/res_1.png',
+      'name': 'Cafe de Noir',
+      'rate': '4.9',
+      'rating': '125',
+      'type': 'cafa',
+      'location': 'Southern Food',
+    },
+  ];
+  List recentArr = [
+    {
+      'image': 'assets/images/item_1.png',
+      'name': 'Mulberry Pizza by Tawheed',
+      'rate': '4.8',
+      'rating': '128',
+      'type': 'cafa',
+      'location': 'Northern Food',
+    },
+    {
+      'image': 'assets/images/item_2.png',
+      'name': 'Barita',
+      'rate': '4.9',
+      'rating': '125',
+      'type': 'cafa',
+      'location': 'Southern Food',
+    },
+    {
+      'image': 'assets/images/item_3.png',
+      'name': 'Pizza Rush Hour',
+      'rate': '4.9',
+      'rating': '125',
+      'type': 'cafa',
+      'location': 'Southern Food',
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,6 +173,8 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
               ),
+
+              SizedBox(height: 30),
             ],
           ),
         ),
