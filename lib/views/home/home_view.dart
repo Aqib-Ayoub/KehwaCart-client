@@ -175,6 +175,33 @@ class _HomeViewState extends State<HomeView> {
               ),
 
               SizedBox(height: 30),
+              SizedBox(
+                height: 140,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  itemCount: catArr.length,
+                  itemBuilder: (context, index) {
+                    var cObj = catArr[index] as Map? ?? {};
+                    return Container(
+                      margin: EdgeInsets.symmetric(horizontal: 8),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              cObj['image'].toString(),
+                              width: 85,
+                              height: 85,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),
