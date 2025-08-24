@@ -1,4 +1,5 @@
 import 'package:client/common_widget/round_textfield.dart';
+import 'package:client/common_widget/view_all_title_row.dart';
 import 'package:client/const/color_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -196,11 +197,25 @@ class _HomeViewState extends State<HomeView> {
                               fit: BoxFit.cover,
                             ),
                           ),
+                          SizedBox(height: 8.0),
+                          Text(
+                            cObj['name'],
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: AColor.primaryText,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
                         ],
                       ),
                     );
                   },
                 ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: ViewAllTitleRow(),
               ),
             ],
           ),
