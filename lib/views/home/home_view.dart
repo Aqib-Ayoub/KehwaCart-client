@@ -1,4 +1,6 @@
 import 'package:client/common_widget/category_cell.dart';
+import 'package:client/common_widget/most_popular_cell.dart';
+import 'package:client/common_widget/recent_item_row.dart';
 import 'package:client/common_widget/round_textfield.dart';
 import 'package:client/common_widget/view_all_title_row.dart';
 import 'package:client/const/color_extension.dart';
@@ -26,7 +28,7 @@ class _HomeViewState extends State<HomeView> {
       'rate': '4.8',
       'rating': '128',
       'type': 'cafa',
-      'location': 'Northern Food',
+      'food_type': 'Northern Food',
     },
     {
       'image': 'assets/images/res_1.png',
@@ -34,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
       'rate': '4.9',
       'rating': '125',
       'type': 'cafa',
-      'location': 'Southern Food',
+      'food_type': 'Southern Food',
     },
     {
       'image': 'assets/images/res_1.png',
@@ -42,25 +44,25 @@ class _HomeViewState extends State<HomeView> {
       'rate': '4.5',
       'rating': '138',
       'type': 'cafe',
-      'location': 'Northern Food ',
+      'food_type': 'Northern Food ',
     },
   ];
   List mostPopArr = [
     {
-      'image': 'assets/images/res_1.png',
+      'image': 'assets/images/m_res_1.png',
       'name': 'Minute by tuk tuk',
       'rate': '4.8',
       'rating': '128',
       'type': 'cafa',
-      'location': 'Northern Food',
+      'food_type': 'Northern Food',
     },
     {
-      'image': 'assets/images/res_1.png',
+      'image': 'assets/images/m_res_2.png',
       'name': 'Cafe de Noir',
       'rate': '4.9',
       'rating': '125',
       'type': 'cafa',
-      'location': 'Southern Food',
+      'food_type': 'Southern Food',
     },
   ];
   List recentArr = [
@@ -195,6 +197,36 @@ class _HomeViewState extends State<HomeView> {
                   title: 'Popular Restaurants',
                   onView: () {},
                 ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: ViewAllTitleRow(title: 'Most Popular', onView: () {}),
+              ),
+              SizedBox(
+                height: 200,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  itemCount: mostPopArr.length,
+                  itemBuilder: (context, index) {
+                    var mObj = mostPopArr[index] as Map? ?? {};
+                    return MostPopularCell(onTap: () {}, mObj: mObj);
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 200,
+                child: ListView.builder(
+                  itemCount: recentArr.length,
+                  itemBuilder: (context, index) {
+                    var rObj = recentArr[index] as Map? ?? {};
+                    return RecentItemRow(rObj: rObj, onTap: () {});
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: ViewAllTitleRow(title: 'Recent Items', onView: () {}),
               ),
             ],
           ),

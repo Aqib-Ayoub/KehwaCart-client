@@ -1,4 +1,4 @@
-import 'package:client/views/on_boarding/splash_view.dart';
+import 'package:client/views/home/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Metropolis',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: StartupView(),
+      // home: StartupView(),
+      home: HomeView(),
     );
   }
 }
