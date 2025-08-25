@@ -2,7 +2,9 @@ import 'package:client/const/color_extension.dart';
 import 'package:flutter/material.dart';
 
 class ViewAllTitleRow extends StatelessWidget {
-  const ViewAllTitleRow({super.key});
+  final String title;
+  final VoidCallback onView;
+  const ViewAllTitleRow({super.key, required this.title, required this.onView});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +12,7 @@ class ViewAllTitleRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "Popular Restaurants",
+          title,
           style: TextStyle(
             color: AColor.primaryText,
             fontSize: 20,
@@ -18,7 +20,7 @@ class ViewAllTitleRow extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: onView,
           child: Text(
             'View all',
             style: TextStyle(

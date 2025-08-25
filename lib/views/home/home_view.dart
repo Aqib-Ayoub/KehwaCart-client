@@ -1,3 +1,4 @@
+import 'package:client/common_widget/category_cell.dart';
 import 'package:client/common_widget/round_textfield.dart';
 import 'package:client/common_widget/view_all_title_row.dart';
 import 'package:client/const/color_extension.dart';
@@ -177,45 +178,23 @@ class _HomeViewState extends State<HomeView> {
 
               SizedBox(height: 30),
               SizedBox(
-                height: 140,
+                height: 120,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.symmetric(horizontal: 15),
                   itemCount: catArr.length,
                   itemBuilder: (context, index) {
                     var cObj = catArr[index] as Map? ?? {};
-                    return Container(
-                      margin: EdgeInsets.symmetric(horizontal: 8),
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(
-                              cObj['image'].toString(),
-                              width: 85,
-                              height: 85,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            cObj['name'],
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: AColor.primaryText,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
+                    return CategoryCell(cObj: cObj, onTap: () {});
                   },
                 ),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
-                child: ViewAllTitleRow(),
+                child: ViewAllTitleRow(
+                  title: 'Popular Restaurants',
+                  onView: () {},
+                ),
               ),
             ],
           ),
