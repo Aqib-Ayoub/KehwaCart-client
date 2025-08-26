@@ -34,9 +34,7 @@ class MostPopularCell extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            SizedBox(height: 4),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
@@ -44,22 +42,26 @@ class MostPopularCell extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(color: AColor.primaryText, fontSize: 12),
                 ),
+
                 Text(
                   ' . ',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: AColor.secondaryText),
                 ),
+                SizedBox(width: 4),
                 Text(
                   mObj['food_type'],
                   textAlign: TextAlign.center,
                   style: TextStyle(color: AColor.secondaryText, fontSize: 12),
                 ),
+                SizedBox(width: 4),
                 Image.asset(
                   'assets/images/rate.png',
                   width: 10,
                   height: 10,
                   fit: BoxFit.cover,
                 ),
+                SizedBox(width: 4),
                 Text(
                   mObj['rate'],
                   textAlign: TextAlign.center,

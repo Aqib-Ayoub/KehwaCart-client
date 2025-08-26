@@ -24,10 +24,11 @@ class RecentItemRow extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(height: 8.0),
+            SizedBox(width: 8.0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     rObj['name'],
@@ -40,7 +41,6 @@ class RecentItemRow extends StatelessWidget {
                   ),
                   SizedBox(height: 4),
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
@@ -64,16 +64,30 @@ class RecentItemRow extends StatelessWidget {
                           fontSize: 11,
                         ),
                       ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
                       Image.asset(
                         'assets/images/rate.png',
                         width: 10,
                         height: 10,
                         fit: BoxFit.cover,
                       ),
+                      SizedBox(width: 4),
                       Text(
                         rObj['rate'],
                         textAlign: TextAlign.center,
                         style: TextStyle(color: AColor.primary, fontSize: 12),
+                      ),
+                      SizedBox(width: 4.0),
+                      Text(
+                        '(${rObj['rating']} Ratings)',
+                        style: TextStyle(
+                          color: AColor.secondaryText,
+                          fontSize: 11,
+                        ),
                       ),
                     ],
                   ),

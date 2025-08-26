@@ -1,5 +1,6 @@
 import 'package:client/common_widget/category_cell.dart';
 import 'package:client/common_widget/most_popular_cell.dart';
+import 'package:client/common_widget/popular_restaurant_row.dart';
 import 'package:client/common_widget/recent_item_row.dart';
 import 'package:client/common_widget/round_textfield.dart';
 import 'package:client/common_widget/view_all_title_row.dart';
@@ -198,6 +199,16 @@ class _HomeViewState extends State<HomeView> {
                   onView: () {},
                 ),
               ),
+              ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                itemCount: popArr.length,
+                itemBuilder: (context, index) {
+                  var pObj = popArr[index] as Map? ?? {};
+                  return PopularRestaurantRow(pObj: pObj, onTap: () {});
+                },
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: ViewAllTitleRow(title: 'Most Popular', onView: () {}),
@@ -214,19 +225,21 @@ class _HomeViewState extends State<HomeView> {
                   },
                 ),
               ),
+
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: ViewAllTitleRow(title: 'Recent Items', onView: () {}),
+              ),
               SizedBox(
                 height: 200,
                 child: ListView.builder(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
                   itemCount: recentArr.length,
                   itemBuilder: (context, index) {
                     var rObj = recentArr[index] as Map? ?? {};
                     return RecentItemRow(rObj: rObj, onTap: () {});
                   },
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: ViewAllTitleRow(title: 'Recent Items', onView: () {}),
               ),
             ],
           ),
