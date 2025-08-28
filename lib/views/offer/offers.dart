@@ -1,3 +1,4 @@
+import 'package:client/const/color_extension.dart';
 import 'package:flutter/material.dart';
 
 class Offers extends StatelessWidget {
@@ -5,6 +6,13 @@ class Offers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: Text('Offers')),
+      body: Column(
+        children: [
+          Container(decoration: BoxDecoration(color: AColor.primaryText)),
+        ],
+      ),
+    );
   }
 }
