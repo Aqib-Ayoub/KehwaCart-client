@@ -1,6 +1,7 @@
 import 'package:client/common_widget/tab_button.dart';
 import 'package:client/const/color_extension.dart';
 import 'package:client/views/home/home_view.dart';
+import 'package:client/views/menu/menu_view.dart';
 import 'package:flutter/material.dart';
 
 class MainTabView extends StatefulWidget {
@@ -59,7 +60,7 @@ class _MainTabViewState extends State<MainTabView> {
               onTab: () {
                 if (selectTab != 0) {
                   selectTab = 0;
-                  selectPageView = Container(child: Text('Hello Menu'));
+                  selectPageView = MenuView();
                 }
                 if (mounted) {
                   setState(() {});
