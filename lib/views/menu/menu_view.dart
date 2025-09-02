@@ -1,5 +1,6 @@
 import 'package:client/common_widget/round_textfield.dart';
 import 'package:client/const/color_extension.dart';
+import 'package:client/views/menu/menu_items_view.dart';
 import 'package:flutter/material.dart';
 
 class MenuView extends StatefulWidget {
@@ -102,86 +103,97 @@ class _MenuState extends State<MenuView> {
                     itemCount: menuArr.length,
                     itemBuilder: (context, index) {
                       var mObj = menuArr[index] as Map? ?? {};
-                      return Stack(
-                        alignment: Alignment.centerRight,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(bottom: 8, right: 20),
-                            width: media.width - 100,
-                            height: 90,
-                            decoration: BoxDecoration(
-                              color: AColor.white,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(25),
-                                bottomLeft: Radius.circular(25),
-                                topRight: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MenuItemsView(mObj: mObj),
+                            ),
+                          );
+                        },
+                        child: Stack(
+                          alignment: Alignment.centerRight,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(bottom: 8, right: 20),
+                              width: media.width - 100,
+                              height: 90,
+                              decoration: BoxDecoration(
+                                color: AColor.white,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(25),
+                                  bottomLeft: Radius.circular(25),
+                                  topRight: Radius.circular(10),
+                                  bottomRight: Radius.circular(10),
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black12,
+                                    blurRadius: 7,
+                                    offset: Offset(0, 4),
+                                  ),
+                                ],
                               ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black12,
-                                  blurRadius: 7,
-                                  offset: Offset(0, 4),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  mObj['image'].toString(),
+                                  width: 80,
+                                  height: 80,
+                                ),
+                                SizedBox(width: 15),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        mObj['name'].toString(),
+                                        style: TextStyle(
+                                          color: AColor.primaryText,
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                      Text(
+                                        '${mObj['items_count']} items',
+                                        style: TextStyle(
+                                          color: AColor.secondaryText,
+                                          fontSize: 11,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  width: 35,
+                                  height: 35,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    color: AColor.white,
+                                    borderRadius: BorderRadius.circular(17.5),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black12,
+                                        blurRadius: 4,
+                                        offset: Offset(0, 2),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/btn_next.png',
+                                    width: 15,
+                                    height: 15,
+                                  ),
                                 ),
                               ],
                             ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                mObj['image'].toString(),
-                                width: 80,
-                                height: 80,
-                              ),
-                              SizedBox(width: 15),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      mObj['name'].toString(),
-                                      style: TextStyle(
-                                        color: AColor.primaryText,
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                    Text(
-                                      '${mObj['items_count']} items',
-                                      style: TextStyle(
-                                        color: AColor.secondaryText,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                width: 35,
-                                height: 35,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: AColor.white,
-                                  borderRadius: BorderRadius.circular(17.5),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black12,
-                                      blurRadius: 4,
-                                      offset: Offset(0, 2),
-                                    ),
-                                  ],
-                                ),
-                                child: Image.asset(
-                                  'assets/images/btn_next.png',
-                                  width: 15,
-                                  height: 15,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                          ],
+                        ),
                       );
                     },
                   ),

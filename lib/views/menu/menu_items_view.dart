@@ -12,30 +12,70 @@ class MenuItemsView extends StatefulWidget {
 }
 
 class _MenuItemsViewState extends State<MenuItemsView> {
-  List popArr = [
+  List menuArr = [
     {
-      'image': 'assets/images/res_1.png',
-      'name': 'Minute by tuk tuk',
+      'image': 'assets/images/dess_1.png',
+      'name': 'French Apple Pie',
       'rate': '4.8',
       'rating': '128',
-      'type': 'cafa',
-      'food_type': 'Northern Food',
+      'type': 'Minute by tuk tuk',
+      'food_type': 'Desserts',
     },
     {
-      'image': 'assets/images/res_1.png',
-      'name': 'Cafe de Noir',
+      'image': 'assets/images/dess_2.png',
+      'name': 'Dark Chocolate Cake',
       'rate': '4.9',
       'rating': '125',
-      'type': 'cafa',
-      'food_type': 'Southern Food',
+      'type': 'Cakes by Tella',
+      'food_type': 'Desserts',
     },
     {
-      'image': 'assets/images/res_1.png',
-      'name': 'Bakes by Tella',
+      'image': 'assets/images/dess_3.png',
+      'name': 'Street Shake',
       'rate': '4.5',
       'rating': '138',
-      'type': 'cafe',
-      'food_type': 'Northern Food ',
+      'type': 'Cafe Racer',
+      'food_type': 'Desserts',
+    },
+    {
+      'image': 'assets/images/dess_4.png',
+      'name': 'Fudgy Chewy Brownies',
+      'rate': '4.9',
+      'rating': '138',
+      'type': 'Cafe Racer',
+      'food_type': 'Desserts',
+    },
+    {
+      'image': 'assets/images/dess_1.png',
+      'name': 'French Apple Pie',
+      'rate': '4.8',
+      'rating': '128',
+      'type': 'Minute by tuk tuk',
+      'food_type': 'Desserts',
+    },
+    {
+      'image': 'assets/images/dess_2.png',
+      'name': 'Dark Chocolate Cake',
+      'rate': '4.9',
+      'rating': '125',
+      'type': 'Cakes by Tella',
+      'food_type': 'Desserts',
+    },
+    {
+      'image': 'assets/images/dess_3.png',
+      'name': 'Street Shake',
+      'rate': '4.5',
+      'rating': '138',
+      'type': 'Cafe Racer',
+      'food_type': 'Desserts',
+    },
+    {
+      'image': 'assets/images/dess_4.png',
+      'name': 'Fudgy Chewy Brownies',
+      'rate': '4.9',
+      'rating': '138',
+      'type': 'Cafe Racer',
+      'food_type': 'Desserts',
     },
   ];
   TextEditingController search = TextEditingController();
@@ -99,18 +139,18 @@ class _MenuItemsViewState extends State<MenuItemsView> {
                 ),
               ),
 
-              SizedBox(height: 30),
+              // SizedBox(height: 30),
 
-              ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                itemCount: popArr.length,
-                itemBuilder: (context, index) {
-                  var pObj = popArr[index] as Map? ?? {};
-                  return PopularRestaurantRow(pObj: pObj, onTap: () {});
-                },
-              ),
+              // ListView.builder(
+              //   physics: NeverScrollableScrollPhysics(),
+              //   shrinkWrap: true,
+              //   padding: EdgeInsets.symmetric(horizontal: 20.0),
+              //   itemCount: popArr.length,
+              //   itemBuilder: (context, index) {
+              //     var pObj = popArr[index] as Map? ?? {};
+              //     return PopularRestaurantRow(pObj: pObj, onTap: () {});
+              //   },
+              // ),
             ],
           ),
         ),
