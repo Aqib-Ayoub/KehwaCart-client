@@ -95,7 +95,7 @@ class _MenuItemsViewState extends State<MenuItemsView> {
                     IconButton(
                       onPressed: () {},
                       icon: Image.asset(
-                        '/assets/images/btn_back.png',
+                        'assets/images/btn_back.png',
                         height: 20,
                         width: 20,
                       ),
@@ -139,18 +139,18 @@ class _MenuItemsViewState extends State<MenuItemsView> {
                 ),
               ),
 
-              // SizedBox(height: 30),
+              SizedBox(height: 30),
 
-              // ListView.builder(
-              //   physics: NeverScrollableScrollPhysics(),
-              //   shrinkWrap: true,
-              //   padding: EdgeInsets.symmetric(horizontal: 20.0),
-              //   itemCount: popArr.length,
-              //   itemBuilder: (context, index) {
-              //     var pObj = popArr[index] as Map? ?? {};
-              //     return PopularRestaurantRow(pObj: pObj, onTap: () {});
-              //   },
-              // ),
+              ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                itemCount: menuArr.length,
+                itemBuilder: (context, index) {
+                  var mObj = menuArr[index] as Map? ?? {};
+                  return PopularRestaurantRow(pObj: mObj, onTap: () {});
+                },
+              ),
             ],
           ),
         ),
