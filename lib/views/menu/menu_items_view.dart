@@ -1,3 +1,4 @@
+import 'package:client/common_widget/menu_item_row.dart';
 import 'package:client/common_widget/popular_restaurant_row.dart';
 import 'package:client/common_widget/round_textfield.dart';
 import 'package:client/const/color_extension.dart';
@@ -139,7 +140,7 @@ class _MenuItemsViewState extends State<MenuItemsView> {
                 ),
               ),
 
-              SizedBox(height: 30),
+              SizedBox(height: 15),
 
               ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
@@ -148,7 +149,7 @@ class _MenuItemsViewState extends State<MenuItemsView> {
                 itemCount: menuArr.length,
                 itemBuilder: (context, index) {
                   var mObj = menuArr[index] as Map? ?? {};
-                  return PopularRestaurantRow(pObj: mObj, onTap: () {});
+                  return MenuItemRow(mObj: mObj, onTap: () {});
                 },
               ),
             ],
