@@ -2,6 +2,7 @@ import 'package:client/common_widget/menu_item_row.dart';
 import 'package:client/common_widget/popular_restaurant_row.dart';
 import 'package:client/common_widget/round_textfield.dart';
 import 'package:client/const/color_extension.dart';
+import 'package:client/views/menu/item_details_view.dart';
 import 'package:flutter/material.dart';
 
 class MenuItemsView extends StatefulWidget {
@@ -149,7 +150,19 @@ class _MenuItemsViewState extends State<MenuItemsView> {
                 itemCount: menuArr.length,
                 itemBuilder: (context, index) {
                   var mObj = menuArr[index] as Map? ?? {};
-                  return MenuItemRow(mObj: mObj, onTap: () {});
+                  return MenuItemRow(
+                    mObj: mObj,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ItemDetailsView(mObj: mObj);
+                          },
+                        ),
+                      );
+                    },
+                  );
                 },
               ),
             ],
