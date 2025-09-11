@@ -1,7 +1,6 @@
 import 'package:client/common_widget/round_button.dart';
 import 'package:client/common_widget/round_textfield.dart';
 import 'package:client/const/color_extension.dart';
-import 'package:client/views/auth/otp_view.dart';
 import 'package:flutter/material.dart';
 
 class NewPasswordView extends StatefulWidget {

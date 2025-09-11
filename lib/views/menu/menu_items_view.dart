@@ -1,5 +1,4 @@
 import 'package:client/common_widget/menu_item_row.dart';
-import 'package:client/common_widget/popular_restaurant_row.dart';
 import 'package:client/common_widget/round_textfield.dart';
 import 'package:client/const/color_extension.dart';
 import 'package:client/views/menu/item_details_view.dart';
